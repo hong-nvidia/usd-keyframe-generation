@@ -75,7 +75,7 @@ Finally, we populate the GraphNode with the relevant keyframe data
 ```
 '''
 We want the x-axis of the cube to be 0 at first keyframe, 200 at second keyframe
-# and back to 0 at the third keyframe
+and back to 0 at the third keyframe
 '''
 x_axis_values = [0, 200, 0]
 keyframe_times = [0, 100000000, 200000000]
