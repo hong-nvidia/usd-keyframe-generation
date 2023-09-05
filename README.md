@@ -78,15 +78,7 @@ We want the x-axis of the cube to be 0 at first keyframe, 200 at second keyframe
 # and back to 0 at the third keyframe
 '''
 x_axis_values = [0, 200, 0]
-
-
-'''
-TODO: can someone help me make sense of these values for times?
-I have set the second keyframe to be at frame 50 and third to be at frame 100
-and the results I get in USD are 117600000 and 235200000 respectively.
-How do we get from the frame number to those values?
-'''
-keyframe_times = [0, 117600000, 235200000]
+keyframe_times = [0, 100000000, 200000000]
 
 
 node_prim.CreateAttribute('xformOp:translate:x:defaultTangentType', Sdf.ValueTypeNames.Token).Set('auto')
@@ -164,7 +156,7 @@ def Xform "World"
             custom token xformOp:translate:x:preInfinityType = "constant"
             custom bool[] xformOp:translate:x:tangentBrokens = [0, 0, 0]
             custom bool[] xformOp:translate:x:tangentWeighteds = [0, 0, 0]
-            custom int64[] xformOp:translate:x:times = [0, 117600000, 235200000]
+            custom int64[] xformOp:translate:x:times = [0, 100000000, 200000000]
             custom double[] xformOp:translate:x:values = [0, 200, 0]
         }
     }

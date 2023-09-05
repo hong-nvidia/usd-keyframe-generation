@@ -46,7 +46,7 @@ def Xform "World"
             custom token xformOp:translate:x:preInfinityType = "constant"
             custom bool[] xformOp:translate:x:tangentBrokens = [0, 0, 0]
             custom bool[] xformOp:translate:x:tangentWeighteds = [0, 0, 0]
-            custom int64[] xformOp:translate:x:times = [0, 117600000, 235200000]
+            custom int64[] xformOp:translate:x:times = [0, 100000000, 200000000]
             custom double[] xformOp:translate:x:values = [0, 200, 0]
         }
     }

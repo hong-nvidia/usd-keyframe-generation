@@ -46,7 +46,7 @@ node_prim.CreateAttribute('node:typeVersion', Sdf.ValueTypeNames.Int).Set(5)
 
 
 x_axis_values = [0, 200, 0]
-keyframe_times = [0, 117600000, 235200000]
+keyframe_times = [0, 100000000, 200000000]
 
 node_prim.CreateAttribute('xformOp:translate:x:defaultTangentType', Sdf.ValueTypeNames.Token).Set('auto')
 node_prim.CreateAttribute('xformOp:translate:x:inTangentTimes', Sdf.ValueTypeNames.Int64Array).Set([0, 0, -0])
