@@ -102,7 +102,7 @@ And don't forget to save the USD Stage at the end:
 stage.Save()
 ```
 
-Note that we have only defined keyframe animation for the x-translation of the cube. Other `xform` attributes can be defined analogously, i.e. change `translate:x` part in the attribute name to `translate:y`, `rotateXYZ:z`, `scale:x`, etc.
+Note that we have only defined keyframe animation for the x-translation of the cube. Other `xform` attributes can be defined analogously, i.e. changing `translate:x` part in the attribute name to `translate:y`, `rotateXYZ:z`, `scale:x`, etc.
 
 
 The resulting USD file generated from the script should look like this:
