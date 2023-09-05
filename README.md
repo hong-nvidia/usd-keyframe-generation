@@ -11,7 +11,7 @@ At the end of this tutorial, you will get a cube that moves from origin to anoth
 
 ## Step-by-Step Instructions
 
-We start by creating a new USD stage and configurate the relevant metadata
+We start by creating a new USD stage and configurate the relevant metadata:
 
 ```
 from pxr import Usd, UsdGeom, Gf, Sdf
@@ -28,7 +28,7 @@ stage.SetMetadata('metersPerUnit', 0.01)
 stage.SetMetadata('upAxis', 'Y')
 ```
 
-We then define a cube as the target of animation
+We then define a cube as the target of animation:
 
 ```
 target_prim_path = '/World/Cube'
@@ -50,7 +50,7 @@ cube_prim.CreateAttribute('xformOpOrder', Sdf.ValueTypeNames.TokenArray).Set([
 ])
 ```
 
-Next, we create an OmniGraph with a GraphNode that defines the animation curve
+Next, we create an OmniGraph with a GraphNode that defines the animation curve:
 
 ```
 og_prim = stage.DefinePrim('/World/PushGraph', 'OmniGraph')
@@ -70,7 +70,7 @@ node_prim.CreateAttribute('node:type', Sdf.ValueTypeNames.Token).Set('omni.anim.
 node_prim.CreateAttribute('node:typeVersion', Sdf.ValueTypeNames.Int).Set(5)
 ```
 
-Finally, we populate the GraphNode with the relevant keyframe data
+Finally, we populate the GraphNode with the relevant keyframe data:
 
 ```
 '''
@@ -96,7 +96,7 @@ node_prim.CreateAttribute('xformOp:translate:x:times', Sdf.ValueTypeNames.Int64A
 node_prim.CreateAttribute('xformOp:translate:x:values', Sdf.ValueTypeNames.DoubleArray).Set(x_axis_values)
 ```
 
-And don't forget to save the USD Stage at the end
+And don't forget to save the USD Stage at the end:
 
 ```
 stage.Save()
