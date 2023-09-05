@@ -17,7 +17,9 @@ We start by creating a new USD stage and configurate the relevant metadata
 from pxr import Usd, UsdGeom, Gf, Sdf
 
 stage = Usd.Stage.CreateNew('keyframe.usda')
+
 stage.DefinePrim('/World', 'Xform')
+
 stage.SetMetadata('defaultPrim', 'World')
 stage.SetMetadata('startTimeCode', 0)
 stage.SetMetadata('endTimeCode', 100)
@@ -37,6 +39,7 @@ initial_scale = (1, 1, 1)
 initial_translation = (0, 0, 0)
 
 cube_prim = UsdGeom.Cube.Define(stage, target_prim_path).GetPrim()
+
 cube_prim.CreateAttribute('extent', Sdf.ValueTypeNames.Float3Array).Set(cube_extent)
 cube_prim.CreateAttribute('size', Sdf.ValueTypeNames.Double).Set(cube_size)
 cube_prim.CreateAttribute('xformOp:rotateXYZ', Sdf.ValueTypeNames.Double3).Set(initial_rotation)
@@ -51,6 +54,7 @@ Next, we create an OmniGraph with a GraphNode that defines the animation curve
 
 ```
 og_prim = stage.DefinePrim('/World/PushGraph', 'OmniGraph')
+
 og_prim.CreateAttribute('evaluationMode', Sdf.ValueTypeNames.Token).Set('Automatic')
 og_prim.CreateAttribute('evaluator:type', Sdf.ValueTypeNames.Token).Set('push')
 og_prim.CreateAttribute('fabricCacheBacking', Sdf.ValueTypeNames.Token).Set('Shared')
@@ -58,6 +62,7 @@ og_prim.CreateAttribute('fileFormatVersion', Sdf.ValueTypeNames.Int2,).Set(Gf.Ve
 og_prim.CreateAttribute('pipelineStage', Sdf.ValueTypeNames.Token).Set('pipelineStageSimulation')
 
 node_prim = stage.DefinePrim('/World/PushGraph/CubeCurveNode', 'OmniGraphNode')
+
 node_prim.CreateRelationship('inputs:Prim').SetTargets([target_prim_path])
 node_prim.CreateAttribute('inputs:Time', Sdf.ValueTypeNames.TimeCode,).Set(Sdf.TimeCode(0))
 node_prim.CreateAttribute('inputs:UseGlobalTime', Sdf.ValueTypeNames.Bool).Set(True)
