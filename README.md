@@ -79,19 +79,19 @@ and back to 0 at the third keyframe
 '''
 x_axis_values = [0, 200, 0]
 keyframe_times = [0, 100000000, 200000000]
-
+num_keyframes = len(x_axis_values)
 
 node_prim.CreateAttribute('xformOp:translate:x:defaultTangentType', Sdf.ValueTypeNames.Token).Set('auto')
-node_prim.CreateAttribute('xformOp:translate:x:inTangentTimes', Sdf.ValueTypeNames.Int64Array).Set([0, 0, -0])
-node_prim.CreateAttribute('xformOp:translate:x:inTangentTypes', Sdf.ValueTypeNames.TokenArray).Set(['auto', 'auto', 'auto'])
-node_prim.CreateAttribute('xformOp:translate:x:inTangentValues', Sdf.ValueTypeNames.DoubleArray).Set([0, 0, 0])
-node_prim.CreateAttribute('xformOp:translate:x:outTangentTimes', Sdf.ValueTypeNames.Int64Array).Set([0, 0, 0])
-node_prim.CreateAttribute('xformOp:translate:x:outTangentTypes', Sdf.ValueTypeNames.TokenArray).Set(['auto', 'auto', 'auto'])
-node_prim.CreateAttribute('xformOp:translate:x:outTangentValues', Sdf.ValueTypeNames.DoubleArray).Set([0, 0, 0])
+node_prim.CreateAttribute('xformOp:translate:x:inTangentTimes', Sdf.ValueTypeNames.Int64Array).Set([0] * num_keyframes)
+node_prim.CreateAttribute('xformOp:translate:x:inTangentTypes', Sdf.ValueTypeNames.TokenArray).Set(['auto'] * num_keyframes)
+node_prim.CreateAttribute('xformOp:translate:x:inTangentValues', Sdf.ValueTypeNames.DoubleArray).Set([0] * num_keyframes)
+node_prim.CreateAttribute('xformOp:translate:x:outTangentTimes', Sdf.ValueTypeNames.Int64Array).Set([0] * num_keyframes)
+node_prim.CreateAttribute('xformOp:translate:x:outTangentTypes', Sdf.ValueTypeNames.TokenArray).Set(['auto'] * num_keyframes)
+node_prim.CreateAttribute('xformOp:translate:x:outTangentValues', Sdf.ValueTypeNames.DoubleArray).Set([0] * num_keyframes)
 node_prim.CreateAttribute('xformOp:translate:x:postInfinityType', Sdf.ValueTypeNames.Token).Set('constant')
 node_prim.CreateAttribute('xformOp:translate:x:preInfinityType', Sdf.ValueTypeNames.Token).Set('constant')
-node_prim.CreateAttribute('xformOp:translate:x:tangentBrokens', Sdf.ValueTypeNames.BoolArray).Set([0, 0, 0])
-node_prim.CreateAttribute('xformOp:translate:x:tangentWeighteds', Sdf.ValueTypeNames.BoolArray).Set([0, 0, 0])
+node_prim.CreateAttribute('xformOp:translate:x:tangentBrokens', Sdf.ValueTypeNames.BoolArray).Set([0] * num_keyframes)
+node_prim.CreateAttribute('xformOp:translate:x:tangentWeighteds', Sdf.ValueTypeNames.BoolArray).Set([0] * num_keyframes)
 node_prim.CreateAttribute('xformOp:translate:x:times', Sdf.ValueTypeNames.Int64Array).Set(keyframe_times)
 node_prim.CreateAttribute('xformOp:translate:x:values', Sdf.ValueTypeNames.DoubleArray).Set(x_axis_values)
 ```
